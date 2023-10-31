@@ -13,9 +13,6 @@
 
     <script>
 
-
-
-
         // genarete rondom output (rock, paper, scissors)
 
         let items = Array("rock", "paper", "scissors");
@@ -28,19 +25,15 @@
 
         }
 
-       
 
-
-
-        // Kullanıcıdan girişi alın
+        // get user input
         let userInput = prompt("Rock-Paper-Scissors?").toLowerCase();
-        // Bilgisayarın seçimini alın
+        // get computer choice
         let computerChoice = getComputerChoices();
-         
-        
 
 
-        // determine the winner
+
+        // determine the winner / the game
 
 
         function determineTheWinner(computerChoice, userInput) {
@@ -50,30 +43,6 @@
             let user = "user";
             let computer = "computer";
             let draw = "draw";
-
-
-            // if (userInput == "rock") {
-            //     if (computerChoice == "paper") {
-            //         winner = computer;
-            //     } else if (computerChoice == "scissors") {
-            //         winner = user;
-            //     } else
-            //         winner = draw;
-            // } else if (userInput == "paper") {
-            //     if (computerChoice == "rock") {
-            //         winner = user;
-            //     } else if (computerChoice == "scissors") {
-            //         winner = computer;
-            //     } else
-            //         winner = draw;
-            // } else if (userInput == "scissors") {
-            //     if (computerChoice == "rock") {
-            //         winner = computer;
-            //     } else if (computerChoice == "paper") {
-            //         winner = user;
-            //     } else
-            //         winner = draw;
-            // }
 
             if (userInput == computerChoice) {
                 winner = draw;
@@ -91,13 +60,6 @@
             return winner;
 
         }
-
-
-        console.log("kullanıcı girdisi: " +  userInput);
-        console.log("bilgisayarın seçimi:" + computerChoice);
-        console.log("kazanan:" + determineTheWinner(computerChoice, userInput));
-
-
 
 
 
@@ -119,7 +81,9 @@
 
 
 
-
+        console.log("kullanıcı girdisi: " + userInput);
+        console.log("bilgisayarın seçimi:" + computerChoice);
+        console.log("kazanan:" + determineTheWinner(computerChoice, userInput));
         console.log(announceTheWinner(winnerAnnounce));
 
 
