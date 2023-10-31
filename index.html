@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- <script src="rps-script.js"></script> -->
+
+    <script>
+
+
+
+
+        // genarete rondom output (rock, paper, scissors)
+
+        let items = Array("rock", "paper", "scissors");
+
+        function getComputerChoices() {
+
+            let computerRandom = items[Math.floor(Math.random() * items.length)];
+
+            return computerRandom
+
+        }
+
+       
+
+
+
+        // Kullanıcıdan girişi alın
+        let userInput = prompt("Rock-Paper-Scissors?").toLowerCase();
+        // Bilgisayarın seçimini alın
+        let computerChoice = getComputerChoices();
+         
+        
+
+
+        // determine the winner
+
+
+        function determineTheWinner(computerChoice, userInput) {
+
+
+            let winner = "No one";
+            let user = "user";
+            let computer = "computer";
+            let draw = "draw";
+
+
+            // if (userInput == "rock") {
+            //     if (computerChoice == "paper") {
+            //         winner = computer;
+            //     } else if (computerChoice == "scissors") {
+            //         winner = user;
+            //     } else
+            //         winner = draw;
+            // } else if (userInput == "paper") {
+            //     if (computerChoice == "rock") {
+            //         winner = user;
+            //     } else if (computerChoice == "scissors") {
+            //         winner = computer;
+            //     } else
+            //         winner = draw;
+            // } else if (userInput == "scissors") {
+            //     if (computerChoice == "rock") {
+            //         winner = computer;
+            //     } else if (computerChoice == "paper") {
+            //         winner = user;
+            //     } else
+            //         winner = draw;
+            // }
+
+            if (userInput == computerChoice) {
+                winner = draw;
+            } else if (
+                (userInput == "rock" && computerChoice == "scissors") ||
+                (userInput == "paper" && computerChoice == "rock") ||
+                (userInput == "scissors" && computerChoice == "paper")
+            ) {
+                winner = user;
+            } else {
+                winner = computer;
+            }
+
+
+            return winner;
+
+        }
+
+
+        console.log("kullanıcı girdisi: " +  userInput);
+        console.log("bilgisayarın seçimi:" + computerChoice);
+        console.log("kazanan:" + determineTheWinner(computerChoice, userInput));
+
+
+
+
+
+        // announce the winner
+
+        let winnerAnnounce = determineTheWinner(computerChoice, userInput);
+
+
+        function announceTheWinner(winnerAnnounce) {
+
+            if (winnerAnnounce === "user") {
+                console.log("you win!!!!!!!!!");
+            } else if (winnerAnnounce === "computer") {
+                console.log("COMPUTER win!!!!!!!!!");
+            } else
+                console.log("berabere :s:S:S");
+        }
+
+
+
+
+
+        console.log(announceTheWinner(winnerAnnounce));
+
+
+
+
+    </script>
+
+    <!-- 
+
+
+
+get user input (example: rock, paper, scissors)
+genarete rondom output (rock, paper, scissors)
+determine the winner
+announce the winner 
+
+
+
+
+
+ -->
+
+
+
+
+</body>
+
+</html>
