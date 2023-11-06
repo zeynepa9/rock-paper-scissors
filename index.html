@@ -4,41 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock-Paper-Scissors</title>
 </head>
 
 <body>
-
-    <!-- <script src="rps-script.js"></script> -->
-
     <script>
+        // Kazananı takip etmek için değişkenler
+        let userScore = 0;
+        let computerScore = 0;
 
-        // genarete rondom output (rock, paper, scissors)
-
+        // Genarete random output (rock, paper, scissors)
         let items = Array("rock", "paper", "scissors");
 
         function getComputerChoices() {
-
             let computerRandom = items[Math.floor(Math.random() * items.length)];
-
-            return computerRandom
-
+            return computerRandom;
         }
 
+        // 5 kez oynamak için bir döngü
+        for (let i = 0; i < 5; i++) {
+            // Kullanıcı girdisi
+            let userInput = prompt("Rock-Paper-Scissors?").toLowerCase();
+            // Bilgisayarın seçimi
+            let computerChoice = getComputerChoices();
 
-        // get user input
-        let userInput = prompt("Rock-Paper-Scissors?").toLowerCase();
-        // get computer choice
-        let computerChoice = getComputerChoices();
+            // Kazananı belirle ve kazananı döndür
+            let winnerAnnounce = determineTheWinner(computerChoice, userInput);
 
+            if (winnerAnnounce === "user") {
+                userScore++;
+            } else if (winnerAnnounce === "computer") {
+                computerScore++;
+            }
 
+            
+            alert("Tur " + (i + 1) + ": Kazanan: " + winnerAnnounce);
+        }
 
-        // determine the winner / the game
+        // 5 oyunun sonunda kazananı ilan et
+        if (userScore > computerScore) {
+            alert("Tebrikler, sen kazandın!");
+        } else if (computerScore > userScore) {
+            alert("Üzgünüm, bilgisayar kazandı.");
+        } else {
+            alert("Berabere!");
+        }
 
-
+        // Kazananı belirleme işlevi
         function determineTheWinner(computerChoice, userInput) {
-
-
             let winner = "No one";
             let user = "user";
             let computer = "computer";
@@ -56,59 +69,9 @@
                 winner = computer;
             }
 
-
             return winner;
-
         }
-
-
-
-        // announce the winner
-
-        let winnerAnnounce = determineTheWinner(computerChoice, userInput);
-
-
-        function announceTheWinner(winnerAnnounce) {
-
-            if (winnerAnnounce === "user") {
-                console.log("you win!!!!!!!!!");
-            } else if (winnerAnnounce === "computer") {
-                console.log("COMPUTER win!!!!!!!!!");
-            } else
-                console.log("berabere :s:S:S");
-        }
-
-
-
-
-        console.log("kullanıcı girdisi: " + userInput);
-        console.log("bilgisayarın seçimi:" + computerChoice);
-        console.log("kazanan:" + determineTheWinner(computerChoice, userInput));
-        console.log(announceTheWinner(winnerAnnounce));
-
-
-
-
     </script>
-
-    <!-- 
-
-
-
-get user input (example: rock, paper, scissors)
-genarete rondom output (rock, paper, scissors)
-determine the winner
-announce the winner 
-
-
-
-
-
- -->
-
-
-
-
 </body>
 
 </html>
