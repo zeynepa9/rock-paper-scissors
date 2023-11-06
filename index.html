@@ -5,73 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <script>
-        // Kazananı takip etmek için değişkenler
-        let userScore = 0;
-        let computerScore = 0;
+    <script src="rps-script.js"></script>
 
-        // Genarete random output (rock, paper, scissors)
-        let items = Array("rock", "paper", "scissors");
+    <div class="button-container">
+        <button id="rock">rock</button>
+        <button id="paper">paper</button>
+        <button id="scissors">scissors</button>
 
-        function getComputerChoices() {
-            let computerRandom = items[Math.floor(Math.random() * items.length)];
-            return computerRandom;
-        }
+        <!-- <div id="computer">
+            <p id="pcchoice">pcchoice</p>
+        </div> -->
+    </div>
 
-        // 5 kez oynamak için bir döngü
-        for (let i = 0; i < 5; i++) {
-            // Kullanıcı girdisi
-            let userInput = prompt("Rock-Paper-Scissors?").toLowerCase();
-            // Bilgisayarın seçimi
-            let computerChoice = getComputerChoices();
+    <div id="result">
+        <p>User's Choice: <span id="user-choice">-</span></p>
+        <p>Computer's Choice: <span id="computer-choice">-</span></p>
+        <p>Winner: <span id="winner-result">-</span></p>
+        <p>Score: <span id="user-score">0</span> - <span id="computer-score">0</span></p>
+        <p>Current round: <span id="current-round">-</span></p>
+    </div>
 
-            // Kazananı belirle ve kazananı döndür
-            let winnerAnnounce = determineTheWinner(computerChoice, userInput);
 
-            if (winnerAnnounce === "user") {
-                userScore++;
-            } else if (winnerAnnounce === "computer") {
-                computerScore++;
-            }
 
-            
-            alert("Tur " + (i + 1) + ": Kazanan: " + winnerAnnounce);
-        }
-
-        // 5 oyunun sonunda kazananı ilan et
-        if (userScore > computerScore) {
-            alert("Tebrikler, sen kazandın!");
-        } else if (computerScore > userScore) {
-            alert("Üzgünüm, bilgisayar kazandı.");
-        } else {
-            alert("Berabere!");
-        }
-
-        // Kazananı belirleme işlevi
-        function determineTheWinner(computerChoice, userInput) {
-            let winner = "No one";
-            let user = "user";
-            let computer = "computer";
-            let draw = "draw";
-
-            if (userInput == computerChoice) {
-                winner = draw;
-            } else if (
-                (userInput == "rock" && computerChoice == "scissors") ||
-                (userInput == "paper" && computerChoice == "rock") ||
-                (userInput == "scissors" && computerChoice == "paper")
-            ) {
-                winner = user;
-            } else {
-                winner = computer;
-            }
-
-            return winner;
-        }
-    </script>
 </body>
 
 </html>
